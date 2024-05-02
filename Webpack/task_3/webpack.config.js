@@ -1,52 +1,71 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-    mode: 'development',
-    entry : path.resolve(__dirname, 'js/dashboard_main.js'),
-    output: {
-      path: path.resolve(__dirname, 'public'),
-      filename: 'bundle.js'
-    },
-    optimization: {
-      splitChunks: {
-        chunks: 'all',
-      },
-    },
-    performance: {
-      maxAssetSize: 1000000,
-    },
+    devtool: "inline-source-map",
     devServer: {
-      contentBase: path.join(__dirname, './public'),
-      compress: true,
-      port: 8564,
+        contentBase: path.join(__dirname, './public'),
+        port: 8564,
+        liveReload: true,
+    },
+    entry: {
+        header: {
+            import: './modules/header/header.js',
+            dependOn: 'shared',
+        },
+        body: {
+            import: './modules/body/body.js',
+            dependOn: 'shared',
+        },
+        footer: {
+            import: './modules/footer/footer.js',
+            dependOn: 'shared',
+        },
+        shared: ['lodash', 'jquery'],
+    },
+    mode: "development",
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.(png|jpe?g|webp|git|svg|)$/i,
+                use: [
+                  {
+                    loader: 'img-optimize-loader',
+                  },
+                ],
+            },
+        ],
     },
     plugins: [
-      new HTMLWebpackPlugin({
-        filename: 'public/index.html'
-      }),
-      new CleanWebpackPlugin()
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                '**/*',
+            ],
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Task 3',
+            favicon: './assets/favicon.ico',
+        }),
     ],
-    module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(jpg|gif|png|jpeg|svg)$/i,
-        use: [
-          "file-loader",
-          {
-            loader: "image-webpack-loader",
-            options: {
-              bypassOnDebug: true,
-              disable: true,
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
             },
-          },
-        ],
-      }
-    ]
-  }
-}
+        },
+    },
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: '[name].bundle.js',
+    },
+};
