@@ -36,6 +36,3 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 * [x] 9. Install Babel
 * [x] 10. Reorganize the files
 * [x] 11. Testing
-
-## Software engineer
-[Javier Andrés Garzón Patarroyo](https://www.javierandresgp.com)
