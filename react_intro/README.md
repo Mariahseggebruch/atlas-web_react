@@ -1,8 +1,4 @@
 # 0x02. React intro
-:open_file_folder: Specializations - Web Stack programming ― React  
-:bust_in_silhouette: By Johann Kerbrat, Engineering Manager at Uber Works  
-:copyright: **[Holberton School](https://www.holbertonschool.com/)**  
-:bookmark: babel | enzyme | javascript | react | webpack
 
 ## Resources
 ### Read or watch:
