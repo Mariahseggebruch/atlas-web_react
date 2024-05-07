@@ -1,93 +1,34 @@
-.App {
-    text-align: center;
-    padding-top: 4rem;
-  }
-  
-  /* #region HEADER */
-  
-  .atlas_logo {
-    height: 12rem;
-    pointer-events: none;
-  }
-  
-  .App-header {
-    background-color: white;
+.App-header {
     display: flex;
-    flex-direction: row;
+    color: #e0344a;
     align-items: center;
-    justify-content: flex-start;
+    border-bottom: thick solid #e0344a;
+  }
+  
+  .App-header img {
+    width: 144px;
   }
   
   .App-header h1 {
-    font-size: 3.5rem;
-    color: #00003C;
-    font-family: 'Galano Grotesque Alt', sans-serif;
-    font-weight: 800;
+    margin: 0;
   }
-  
-  /* #endregion */
-  
-  /* #region BODY */
   
   .App-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    min-height: 100vh;
-    border-top: 5px solid #00003C;
-    border-bottom: 5px solid #00003C;
+    padding: 16px 24px;
+  }
+  .App-body input,
+  .App-body button {
+    margin: 4px;
+  }
+  .App-body button {
+    cursor: pointer;
   }
   
-  .App-body p {
-    font-family: 'Galano Grotesque Alt', sans-serif;
-    font-weight: 400;
-    font-size: 1.3rem;
-    margin: 1rem 2rem 1rem 4rem;
-  }
-  
-  /* FORM */
-  
-  .App-body form {
-    font-family: 'Galano Grotesque Alt', sans-serif;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-weight: 400;
-    font-size: 1.2rem;
-    margin: 0.5rem 2rem 1rem 4rem;
-  }
-  
-  .App-body label {
-    padding-right: 0.5rem;
-  }
-  
-  .App-body form input,
-  .App-body form button {
-    font-family: 'Galano Grotesque Alt', sans-serif;
-    font-weight: 400;
-    font-size: 1.3rem;
-    margin: 0.5rem;
-    padding: 0.2rem;
-    border: 1px solid #00003C;
-    border-radius: 2px;
-    max-width: calc(50% - 2rem);
-  }
-  
-  .App-body form button {
-    background-color: #00003C;
-    color: white;
-  }
-  
-  /* #endregion */
-  
-  /* #region FOOTER */
-  
-  .App-footer p {
-    font-family: 'Galano Grotesque Alt', sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
+  .App-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
     font-style: italic;
+    border-top: thick solid #e0344a;
   }
-  
-  /* #endregion */
